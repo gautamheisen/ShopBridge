@@ -1,0 +1,22 @@
+<div class=container >
+    <div style="margin-left:30%;margin-top:18%">
+    <div class="row">
+  <h3 style="font-weight: bold;">Welcome To Shop Bridge</h3>
+    </div>
+    <div class="row">
+  <div class="input-group mb-3 col-md-3">
+    <input type="text" class="form-control" placeholder="UserName" aria-label="Search" aria-describedby="basic-addon1" [formControl]="username" >
+  </div>
+  <div *ngIf="username.invalid && (username.dirty || username.touched  )"
+    class="alert alert-danger">
+
+  <div *ngIf="username.invalid">
+   User Name is required.
+  </div>
+</div>
+  <div>
+    <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
+  </div>
+  </div> 
+  </div>
+  </div>

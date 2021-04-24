@@ -1,0 +1,39 @@
+<form [formGroup]="inventoryform" (ngSubmit)="submit()">
+<div class="row">
+    <div class="input-group mb-3 col-md-3">
+        <input type="text" class="form-control" placeholder="Name" aria-label="Search" aria-describedby="basic-addon1" formControlName="name" >
+    </div>
+    <div class="input-group mb-3 col-md-3">
+        <input type="text" class="form-control" placeholder="Description" aria-label="Search" aria-describedby="basic-addon1" formControlName="description" >
+    </div>
+    <div class="input-group mb-3 col-md-3">
+        <input type="text" class="form-control" placeholder="Price" aria-label="Search" aria-describedby="basic-addon1" formControlName="price" >
+    </div>
+    <div>
+        <button  class="btn btn-primary  col-md-3" style="max-width: 100%;" [disabled]="!inventoryform.valid" >Save</button>
+      </div>
+</div>
+<div class="row">
+    <div *ngIf="inventoryform.get('name').invalid && (inventoryform.get('name').dirty || inventoryform.get('name').touched  )"
+    class="alert alert-danger col-md-3">
+
+  <div *ngIf="inventoryform.get('name').errors.required">
+   Name is required.
+  </div>
+</div>
+<div *ngIf="inventoryform.get('description').invalid && (inventoryform.get('description').dirty || inventoryform.get('description').touched  )"
+class="alert alert-danger col-md-3">
+
+<div *ngIf="inventoryform.get('description').errors.required">
+Description is required.
+</div>
+</div>
+<div *ngIf="inventoryform.get('price').invalid && (inventoryform.get('price').dirty || inventoryform.get('price').touched  )"
+class="alert alert-danger col-md-3">
+
+<div *ngIf="inventoryform.get('price').errors.required">
+Price is required.
+</div>
+</div>
+</div>
+</form>

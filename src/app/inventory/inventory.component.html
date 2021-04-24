@@ -1,0 +1,32 @@
+<h3 style="font-weight: bold;">Inventory List</h3>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+         <th>Description</th>
+         <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+      <tbody>
+        <!-- <tr *ngFor ="let user of userlist | filter : userlist :key"> -->
+          <tr *ngFor ="let inv of inventorylist">
+          <td>{{inv.name}}</td>
+          <td>{{inv.description}}</td>
+          <td>{{inv.price}}</td>
+          <td><span><button class="badge badge-success" (click)="Modify('Update',inv)">Update</button>
+            /</span><span><button class="badge badge-success" (click)="Modify('Delete',inv)">Delete</button></span></td>
+          <!-- <td>
+          <span *ngIf="!user.isActive" class="badge badge-danger">Inactive</span>
+          <span *ngIf="user.isActive" class="badge badge-success">active</span>
+  </td> -->
+  </tr>
+  </tbody>
+  
+</table>
+<div>
+  <button type="button" class="btn btn-primary" (click)="Modify('New','')">Add New Inventory</button>
+</div>
+<br>
+<app-update-inventory [data]="obj" (saveEvent)="OnModifyInventory()" *ngIf="modifyinventory"></app-update-inventory>
